@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.zedongw.mapping.o2o2.entity">
+
+    <class name="IdCard2" table="idCard2">
+        <id name="pid">
+            <generator class="foreign">
+                <param name="property">person</param>
+            </generator>
+        </id>
+        <property name="iid" column="iid"/>
+        <property name="place" column="place"/>
+        <one-to-one name="person" class="cn.zedongw.mapping.o2o2.entity.Person2" cascade="all" constrained="true"/>
+    </class>
+</hibernate-mapping>

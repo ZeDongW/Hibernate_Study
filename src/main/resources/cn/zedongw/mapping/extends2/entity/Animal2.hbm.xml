@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.zedongw.mapping.extends2.entity">
+
+    <class name="Animal2" table="animal2">
+        <id name="aid" column="aid">
+            <generator class="native"></generator>
+        </id>
+        <discriminator column="type_"/>
+        <property name="aName" column="aName"/>
+        <subclass name="Cat2" discriminator-value="cat_">
+            <property name="catchMouse"/>
+        </subclass>
+        <subclass name="Monkey2" discriminator-value="monkey_">
+            <property name="eatBanana"/>
+        </subclass>
+    </class>
+</hibernate-mapping>

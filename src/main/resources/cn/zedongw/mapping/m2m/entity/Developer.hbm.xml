@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.zedongw.mapping.m2m.entity">
+
+    <class name="Developer" table="developer">
+        <id name="did" column="did">
+            <generator class="native"></generator>
+        </id>
+        <property name="dName" column="dName"/>
+        <set name="projects" table="prj_dev" cascade="all">
+            <key column="did"></key>
+            <many-to-many class="cn.zedongw.mapping.m2m.entity.Project" column="pid"></many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

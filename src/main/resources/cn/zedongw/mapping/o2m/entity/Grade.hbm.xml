@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.zedongw.mapping.o2m.entity">
+
+    <class name="Grade" table="grade">
+        <id name="gid" column="gid">
+            <generator class="native"></generator>
+        </id>
+        <property name="gName" column="gName"/>
+        <set name="students" cascade="none" inverse="true">
+            <key column="gid"></key>
+            <one-to-many class="cn.zedongw.mapping.o2m.entity.Student"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

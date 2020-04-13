@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.zedongw.mapping.o2o2.entity">
+
+    <class name="Person2" table="person2">
+        <id name="pid" column="pid">
+            <generator class="native"></generator>
+        </id>
+        <property name="pName" column="pName"/>
+        <one-to-one name="idCard" class="cn.zedongw.mapping.o2o2.entity.IdCard2"/>
+    </class>
+</hibernate-mapping>
